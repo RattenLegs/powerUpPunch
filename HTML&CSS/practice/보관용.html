@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>실험용</title>
+</head>
+<body>
+	<div id="container">
+	<section class="box">
+		<div>
+			<ul id="menu">
+				<li id="basic"><a href="#">기초</a></li>
+				<li id="directive"><a href="#">디렉티브</a></li>
+				<li id="script"><a href="#">스크립트 요소</a></li>
+				<li id="object"><a href="#">기본 객체</a></li>
+				<li id="EL"><a href="#">표현 언어</a></li>
+				<li id="tag"><a href="#">태그</a></li>
+				<li id="ETC"><a href="#">기타</a></li>
+				<!-- li를 누르면 서로 다른 글이 나오게 한다. -->
+			</ul>
+		</div>
+	</section>
+	<nav class="main">
+		<div class="content">
+			JSP 내용을 정리한 문서입니다. <br> 몇몇 책과 페이지를 참조했습니다.<br> 공부용으로 만들었기에
+			문제가 된다면 바로 삭제하도록 하겠습니다.<br>
+		</div>
+		<div id="content">
+			<div id="basicContent">
+				<p>기초 관련</p>
+			</div>
+			<div id="directiveContent">
+				<p>디렉티브 관련</p>
+			</div>
+			<div id="scriptContent">
+				<p>스크립트 관련</p>
+			</div>
+			<div id="objectContent">
+				<p>오브젝트 관련</p>
+			</div>
+			<div id="ELContent">
+				<p>EL 관련</p>
+			</div>
+			<div id="tagContent">
+				<p>tag관련</p>
+			</div>
+			<div id="ETCContent">
+				<p>etc관련</p>
+			</div>
+		</div>
+	</nav>
+</div>
+
+
+
+	<!--스크립트-->
+	<script>
+        /*menu 자식 노드 관련 공부*/
+		let $menu = document.getElementById('menu');
+		let $testchild = $menu.childNodes;
+		console.log($testchild);
+		
+		let $testchild2 = [$menu.childNodes[1], $menu.childNodes[3], $menu.childNodes[5], $menu.childNodes[7], $menu.childNodes[9], $menu.childNodes[11], $menu.childNodes[13]];
+		console.log($testchild2);
+		
+		let $basic = document.getElementById('basic');
+		console.log($basic);
+		console.log($testchild2[0]);
+
+		if($testchild2[0] === $basic){
+			console.log('참');
+		}
+		
+		/*content 자식 노드 관련 공부, 본론임*/
+		console.log('-------------------');
+		let $content = document.getElementById('content');
+		console.log($content);
+		let $childContent = [$content.childNodes[1], $content.childNodes[3], $content.childNodes[5], $content.childNodes[7], $content.childNodes[9], $content.childNodes[11], $content.childNodes[13]]; //이걸 좀 보기 쉽게 바꿀 수 없나?
+		
+		
+		/*확인 완료*/
+		console.log('-------------------');
+		console.log($childContent);
+		let $copyChildContent = [document.getElementById('content').childNodes[1], $content.childNodes[3], $content.childNodes[5], $content.childNodes[7], $content.childNodes[9], $content.childNodes[11], $content.childNodes[13]];
+		
+		if($childContent[0] === $copyChildContent[0]){
+			console.log('첫번째 진실');
+		} else {
+			console.log('잠 못잘지도');
+		}
+		console.log('-------------------');
+
+		console.log($childContent[0]);
+		console.log($childContent[1]);
+		/*기초*/
+		let $basicBtn = document.getElementById('basic');
+		let $basicContent = document.getElementById('basicContent');
+		console.log('-------------------');
+		console.log($childContent[0].style.display);
+		console.log($basicContent.style.display);
+		$basicContent.style.display = 'none';
+		console.log('확인차');
+		console.log($basicContent.style.display);
+		console.log('-------------------');
+		/*여기서 더 해 보자*/
+		if($childContent[0].style.display === $basicContent.style.display){
+			console.log($childContent[0].style.display);
+			console.log($basicContent.style.display);
+			/*왜 여기서는 none이 뜨는데 위에서는 공백이 뜨는가?*/
+			console.log('참');
+		} else {
+			console.log('거짓');
+		}
+		
+		/*
+			이게 되면 될듯?
+			-> 타입 에러
+		*/
+		let $childDisplay = [$childContent[0].style.display, $childContent[1].style.display, $childContent[2].style.display, $childContent[3].style.display, $childContent[4].style.display, $childContent[5].style.display,$childContent[6].style.display];
+		console.log($childDisplay[0]);
+		if($childDisplay[0] === $basicContent.style.display){
+			console.log($childDisplay[0]);
+			console.log($basicContent.style.display);
+			console.log('마지막 참');
+		} else {
+			console.log($childDisplay[0]);
+			console.log($basicContent.style.display);
+			console.log('마지막 거짓');
+		}
+
+
+		/*변수 선언*/
+
+
+		/*디렉티브*/
+		//
+		let $directiveBtn = document.getElementById('directive');
+		
+		//내용 안보이게 하기
+		let $directiveContent = document.getElementById('directiveContent');
+		$directiveContent.style.display = 'none';
+
+		/*스크립트*/
+		let $scriptBtn = document.getElementById('script');
+		
+		//내용 안보이게 하기
+		let $scriptContent = document.getElementById('scriptContent');
+		$scriptContent.style.display = 'none';
+
+		/*오브젝트*/
+		let $objectBtn = document.getElementById('object');
+
+		//내용 안보이게 하기
+		let $objectContent = document.getElementById('objectContent');
+		$objectContent.style.display = 'none';
+
+		/*EL*/
+		let $ELBtn = document.getElementById('EL');
+
+		//내용 안보이게 하기
+		let $ELContent = document.getElementById('ELContent');
+		$ELContent.style.display = 'none';
+
+		/*tag*/
+		let $tagBtn = document.getElementById('tag');
+
+		//내용 안보이게 하기
+		let $tagContent = document.getElementById('tagContent');
+		$tagContent.style.display = 'none';
+
+		/*ETC*/
+		let $ETCBtn = document.getElementById('ETC');
+
+		//내용 안보이게 하기
+		let $ETCContent = document.getElementById('ETCContent');
+		$ETCContent.style.display = 'none';
+		/*왜 클래스에 먹이는건 안되는가?*/
+
+
+
+		/*a태그 클릭 시*/
+		/*기초*/
+		$basicBtn.addEventListener('click', function () {
+			if ($basicContent.style.display === 'none') {
+				/*전체 none*/
+				$childDisplay = ['none', 'none', 'none', 'none', 'none', 'none', 'none']; //이렇게 작동하면 안되나 봄
+				$basicContent.style.display = 'block';
+			} else if ($basicContent.style.display === 'block') {
+				$basicContent.style.display = 'none';
+			}
+		})
+
+	</script>
+</body>
+</html>
