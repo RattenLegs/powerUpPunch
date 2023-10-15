@@ -66,12 +66,17 @@
 		
 		/*왜 클래스에 먹이는건 안되는가?*/
 
+
+		
 		/*전부 none으로 감추기*/
-		for(var i=0; i<=6; i++){
-					$childContent[i].style.display = 'none';
-				}
+		function hide(){
+			for(var i=0; i<=6; i++){
+                $childContent[i].style.display = 'none';
+            }}
+		hide()	
 
 		/*아래 부분을 하나의 코드로 만드는게 메인에서 마지막 목표*/
+		//너가 만들고 싶은게 무엇인가?
 		/*이후 전역변수 줄이기 ㄱㄱ*/
 		/*기초*/
 
@@ -80,7 +85,11 @@
 				/*전체 none*/
 				for(var i=0; i<=6; i++){
 					$childContent[i].style.display = 'none';
-				}
+				} //if로 바꿔 봅시다.
+				/*
+					다른 display 중에서 none이 아닌게 있으면 none으로 만듭니다.
+					=block의 개수가 1개 이상 있으면 전부 none으로 합니다.
+				*/
 				//Q. 왜 반복문을 때려박는건 되고 배열 통째로 바꾸면 안되는가?
 				$childContent[0].style.display = 'block';
 			} else if ($childContent[0].style.display === 'block') {
