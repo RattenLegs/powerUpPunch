@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,11 +32,17 @@
 
 		/*section*/
 		.box {
-			background: black;
+			background: blue;
 			text-align: center;
 			margin: 0 auto;
-			/*그라데이션 넣어봅시다!*/
+			/*그라데이션
+	*/
+			background: -webkit-linear-gradient(left top, blue, white);
+			background: -moz-linear-gradient(right bottom, blue, white);
+			background: -o-linear-gradient(right bottom, blue, white);
+			background: linear-gradient(to right bottom, blue, white);
 		}
+
 
 		#menu {
 			margin: 0 auto;
@@ -80,7 +87,8 @@
 
 <body>
 	<div id="container">
-		<header>JSP 공부</header><!--클릭 시 메인페이지로 이동-->
+		<header>JSP 공부</header>
+		<!--클릭 시 메인페이지로 이동-->
 		<section class="box">
 			<div>
 				<ul id="menu">
@@ -123,8 +131,10 @@
 					<p>etc관련</p>
 				</div>
 			</div>
+			<button class="moveBtn">이동</button>
 		</nav>
-		<footer>푸터</footer><!--장식용, 완성해둘 것-->
+		<footer>푸터</footer>
+		<!--장식용, 완성해둘 것-->
 	</div>
 
 	<!--스크립트-->
@@ -140,6 +150,8 @@
 		let $childContent = [$content.childNodes[1], $content.childNodes[3], $content.childNodes[5], $content.childNodes[7],
 			$content.childNodes[9], $content.childNodes[11], $content.childNodes[13]
 		]; //이걸 좀 보기 쉽게 바꿀 수 없나?
+
+		let $moveBtn = document.querySelector('.moveBtn');
 
 		/*Q. 왜 클래스에 먹이는건 안되는가?*/
 
@@ -165,6 +177,9 @@
 				} else if ($childContent[number].style.display === 'block') {
 					$childContent[number].style.display = 'none';
 				}
+			})
+			$moveBtn.addEventListener('click', function () {
+				location.href = 'buttonPractice.html';
 			})
 		}
 

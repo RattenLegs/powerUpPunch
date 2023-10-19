@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>버튼 연습</title>
+</head>
+<body>
+	<button class="moveBtn">이동</button>
+</body>
+	<script>
+		let $moveBtn = document.querySelector('.moveBtn');
+		console.log($moveBtn);
+
+		$moveBtn.addEventListener('click', function(){
+			location.href='sample.html';
+		})
+	</script>
+</html>
