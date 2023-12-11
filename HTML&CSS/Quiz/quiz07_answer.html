@@ -42,13 +42,6 @@
 
     <script>
 
-        /*
-        사용자가 버튼을 클릭할 때마다 이벤트를 발생시켜서
-        입력창 행을 추가해 주시면 됩니다.
-        행 노드를 복사하셔서 개수만큼 추가 해 주시면 됩니다.
-        필요하다면 반복문을 이용하셔도 됩니다.
-        */
-
         const $todoList = document.querySelector('.todoList');
         const $add1 = document.getElementById('add1');
 
@@ -66,12 +59,8 @@
                 const $cloneList = $list.cloneNode(true);
                 $frag.appendChild($cloneList);
             }
-
             $todoList.appendChild($frag);
-
         }
-
-
     </script>
 
 </body>
